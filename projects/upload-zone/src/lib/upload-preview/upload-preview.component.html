@@ -1,0 +1,22 @@
+<div class="table_preview">
+   <table>
+      <tr >
+         <td class="file_preview" width="10%">
+            <img [src]="file.dataUrl" />
+         </td>
+         <td class="file_summary" width="85%" *ngIf="showLabel">
+            {{file.fileName}}
+         </td>
+         <td class="file_action" width="5%">
+            <span class="remove_icon" (click)="removeImage.emit()">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="close_icon">
+                  <line x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="5" />
+                  <line x1="90" y1="10" x2="10" y2="90" stroke="white" stroke-width="5" />
+               </svg>
+            </span>
+         </td>
+      </tr>
+   </table>
+   <div>
+   </div>
+</div>

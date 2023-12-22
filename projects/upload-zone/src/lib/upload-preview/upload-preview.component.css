@@ -1,0 +1,57 @@
+.table_preview table {
+   width: 100%;
+   border-collapse: collapse !important;
+   border: 0 none;
+}
+
+.table_preview .file_preview {
+   display: block;
+   box-sizing: border-box;
+   border: 0 none;
+   width: 72px;
+   height: 68px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 5px;
+}
+
+.table_preview .file_summary {
+font-weight: bold;
+}
+
+.table_preview .file_preview img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 5px;
+}
+
+.table_preview .file_action{
+   text-align: center;
+}
+
+.table_preview .file_action span {
+   display: inline-block;
+   width: 26px;
+   height: 26px;
+   box-sizing: border-box;
+   border-radius: 50%;
+   overflow: hidden;
+   background-color: #bbbbbb;
+   cursor: pointer;
+   transition: opacity 0.3s ease;
+}
+
+.table_preview .file_action span:hover {
+   opacity: 0.8;
+}
+
+.table_preview .file_action .close_icon {
+   transition: stroke 0.3s ease;
+}
+
+.table_preview .file_action span:hover .close_icon {
+   stroke: #495057;
+   /* Adjust the color on hover */
+}

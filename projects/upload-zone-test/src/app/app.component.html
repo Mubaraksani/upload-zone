@@ -1,0 +1,7 @@
+<div>
+  <lib-upload-zone (imagesUploaded)="onFileUpload($event)">
+    <lib-upload-preview *ngFor="let f of files; let i = index" [file]="f" [showLabel]="true"
+     (removeImage)="onRemoveImage(i)">
+    </lib-upload-preview>
+  </lib-upload-zone>
+</div>

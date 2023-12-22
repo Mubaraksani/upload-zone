@@ -1,0 +1,7 @@
+<div class="fileupload_wrap">
+   <button class="fileupload_btn" (click)="file_input.click()">
+      <lib-upload-label></lib-upload-label>
+      <input type="file" (change)="onFileSelected($event)" multiple #file_input />
+   </button>
+</div>
+<ng-content></ng-content>

@@ -3,5 +3,129 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "upload-zone": {
+      "projectType": "library",
+      "root": "projects/upload-zone",
+      "sourceRoot": "projects/upload-zone/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/upload-zone/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/upload-zone/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/upload-zone/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/upload-zone/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "upload-zone-test": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/upload-zone-test",
+      "sourceRoot": "projects/upload-zone-test/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/upload-zone-test",
+            "index": "projects/upload-zone-test/src/index.html",
+            "main": "projects/upload-zone-test/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/upload-zone-test/tsconfig.app.json",
+            "assets": [
+              "projects/upload-zone-test/src/favicon.ico",
+              "projects/upload-zone-test/src/assets"
+            ],
+            "styles": [
+              "projects/upload-zone-test/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "upload-zone-test:build:production"
+            },
+            "development": {
+              "browserTarget": "upload-zone-test:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "upload-zone-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/upload-zone-test/tsconfig.spec.json",
+            "assets": [
+              "projects/upload-zone-test/src/favicon.ico",
+              "projects/upload-zone-test/src/assets"
+            ],
+            "styles": [
+              "projects/upload-zone-test/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }
